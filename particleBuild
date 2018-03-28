@@ -1,0 +1,36 @@
+int ledRed = D0;
+int ledBlue = D1;
+int ledGreen = D2;
+
+void setup() {
+    
+    pinMode(ledRed, OUTPUT);
+    pinMode(ledBlue, OUTPUT);
+    pinMode(ledGreen, OUTPUT);
+    
+    Particle.function("led", led);
+
+}
+
+void loop() {
+
+}
+
+
+int led(String command){
+    if (command == "red"){
+         digitalWrite(ledRed, HIGH);
+         digitalWrite(ledBlue, LOW);
+         digitalWrite(ledGreen, LOW);
+    }
+    else if (command == "green"){
+         digitalWrite(ledRed, LOW);
+         digitalWrite(ledBlue, LOW);
+         digitalWrite(ledGreen, HIGH);
+    }
+    else if (command == "blue"){
+         digitalWrite(ledRed, LOW);
+         digitalWrite(ledBlue, HIGH);
+         digitalWrite(ledGreen, LOW);
+    }
+}
